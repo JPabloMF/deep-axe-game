@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jump.png-abc9a28b98d13fab839ad2f3502329f6.stex"
+path="res://.import/idle.png-0f1d7419b24cba8344bbcf2b1df4c2cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/test/character/jump.png"
-dest_files=[ "res://.import/jump.png-abc9a28b98d13fab839ad2f3502329f6.stex" ]
+source_file="res://sprites/test/character/irl/idle.png"
+dest_files=[ "res://.import/idle.png-0f1d7419b24cba8344bbcf2b1df4c2cb.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

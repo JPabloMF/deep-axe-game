@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attack.png-9618c97d56fd92baab3fea322beb70d4.stex"
+path="res://.import/test-tileset.png-fb54ab9bcf53f6fe2e7d59429c6b10ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/test/character/attack.png"
-dest_files=[ "res://.import/attack.png-9618c97d56fd92baab3fea322beb70d4.stex" ]
+source_file="res://sprites/test/test-tileset.png"
+dest_files=[ "res://.import/test-tileset.png-fb54ab9bcf53f6fe2e7d59429c6b10ff.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
