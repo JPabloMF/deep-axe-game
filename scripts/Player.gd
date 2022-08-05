@@ -9,10 +9,12 @@ var motion = Vector2()
 var direction = 'left'
 
 var lives_counter = 3
+var coins_counter = 0
 
 onready var player_sprite = $PlayerSprite
 onready var axe_collision = $PlayerSprite/Axe/CollisionShape2D
 onready var lives_counter_sprite = $LivesCounterSprite
+onready var coin_text = $MarginContainer/HBoxContainer/RichTextLabel
 
 const INPUTS = {
 	'UP': 'ui_up',
@@ -44,6 +46,10 @@ func handle_attack():
 	if Input.is_action_just_pressed(INPUTS.ATTACK):
 		print('attack')
 		$AnimationPlayer.play("attack")
+		
+func handle_coin_pickup():
+	coins_counter += 1
+	coin_text.text = str(coins_counter)
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -78,9 +84,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("idle")
 
 func _on_Player_area_entered(area):
-	if 'Enemy' == area.get_name():
+	if 'Enemy' in area.get_name():
 		if lives_counter == 1:
 			get_tree().reload_current_scene()
 		else:
 			lives_counter -= 1
 			lives_counter_sprite.set_frame(lives_counter)
+	if 'Coin' in area.get_name():
+		handle_coin_pickup()

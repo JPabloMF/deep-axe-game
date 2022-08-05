@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/test/test-sprite.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/WalkingEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -59,3 +60,12 @@ position = Vector2( 371, 152 )
 
 [node name="WalkingEnemy6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 319, 120 )
+
+[node name="Coin" parent="." instance=ExtResource( 4 )]
+position = Vector2( 362, 260 )
+
+[node name="Coin2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 324, 261 )
+
+[node name="Coin3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 265, 255 )
