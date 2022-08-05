@@ -8,6 +8,12 @@ export var JUMP_HEIGHT = -350
 var motion = Vector2()
 var direction = 'left'
 
+var lives_counter = 3
+
+onready var player_sprite = $PlayerSprite
+onready var axe_collision = $PlayerSprite/Axe/CollisionShape2D
+onready var lives_counter_sprite = $LivesCounterSprite
+
 const INPUTS = {
 	'UP': 'ui_up',
 	'DOWN': 'ui_down',
@@ -23,13 +29,16 @@ const ANIMATIONS = {
 	'REST': 'rest'
 }
 
+func _ready():
+	lives_counter_sprite.set_frame(lives_counter)
+	
 func handle_direction():
 	if direction == 'left':
-		$Sprite.flip_h = false
-		$Sprite/Axe/CollisionShape2D.position.x = -11.5
+		player_sprite.flip_h = false
+		axe_collision.position.x = -11.5
 	else:
-		$Sprite.flip_h = true
-		$Sprite/Axe/CollisionShape2D.position.x = 11.5
+		player_sprite.flip_h = true
+		axe_collision.position.x = 11.5
 
 func handle_attack():
 	if Input.is_action_just_pressed(INPUTS.ATTACK):
@@ -70,6 +79,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Player_area_entered(area):
 	if 'Enemy' == area.get_name():
-		print('get damage')
-		print(get_tree().get_nodes_in_group("Enemy"))
-		
+		if lives_counter == 1:
+			get_tree().reload_current_scene()
+		else:
+			lives_counter -= 1
+			lives_counter_sprite.set_frame(lives_counter)
